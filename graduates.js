@@ -1,42 +1,22 @@
 function graduates (students) {
     // Code disini
-    var tempClass = []
-    var filterStudents = []
-    for (var i = 0; i < students.length; i++) {
-        var flagClass = true
-        var flagScore = true
-        if (students[i].score < 75) {
-            flagScore = false
-        }
-        for (var j = 0; j < tempClass.length; j++) {
-            if (students[i].class === tempClass[j]) {
-                flagClass = false
-            }
-        }
-        if (flagClass === true ) {
-            tempClass.push(students[i].class)
-        }
-        if (flagScore === true)  {
-            filterStudents.push(students[i])
-        }
 
-    }
-    // console.log(filterStudents)
     var result = {}
-    for ( var i = 0; i < tempClass.length; i++) {
-        var tempArray = []
-        for ( var j = 0; j < filterStudents.length; j++) {
-            if (tempClass[i] === filterStudents[j].class) {
-                var tempObj = {}
-                tempObj.name = filterStudents[j].name
-                tempObj.score = filterStudents[j].score
-                tempArray.push(tempObj)
+    for (var i = 0; i < students.length; i++) {
+        var array = []
+        for ( var j = 0; j < students.length; j++) {
+            if (students[j].score > 75) {
+            var tempObj = {}
+                if (students[i].class === students[j].class) {
+                    tempObj.name = students[j].name
+                    tempObj.score = students[i].score
+                    array.push(tempObj)
+                }
             }
         }
-        result[tempClass[i]] = tempArray
+        result[students[i].class] = array
     }
     return result
-    
   }
   
   console.log(graduates([
