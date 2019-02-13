@@ -14,7 +14,7 @@ function ubahHuruf(kata) {
       }
     }
     return result
-  }
+}
   
   // TEST CASES
   console.log(ubahHuruf('wow')); // xpx
