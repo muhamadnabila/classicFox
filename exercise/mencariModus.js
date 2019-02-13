@@ -1,0 +1,36 @@
+function cariModus(arr) {
+    // you can only write your code here!
+    var hasilModus = []
+    var bandingModus = 0
+    for (var i = 0; i < arr.length; i++) {
+      var tempModus = 0
+      var flag = false
+      for (var j = 0; j < arr.length; j++) {
+        if (i !== j) {
+          if (arr[i] === arr[j]) {
+            tempModus ++
+            flag = true 
+          }
+        }
+      }
+      if (flag === true) {
+        if (tempModus > bandingModus) {
+          bandingModus = tempModus
+          hasilModus = arr[i]
+        }
+      }
+    }
+    // console.log(bandingModus)
+    if (bandingModus === arr.length - 1 || hasilModus.length === 0) {
+      return -1
+    }else {
+      return hasilModus
+    }
+  }
+
+  // TEST CASES
+  console.log(cariModus([10, 4, 5, 2, 4,5,5])); // 4
+  console.log(cariModus([5, 10, 10, 6, 5])); // 5
+  console.log(cariModus([10, 3, 1, 2, 5])); // -1
+  console.log(cariModus([1, 2, 3, 3, 4, 5])); // 3
+  console.log(cariModus([7, 7, 7, 7, 7])); // -1
